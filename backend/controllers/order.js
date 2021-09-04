@@ -75,3 +75,52 @@ exports.addNewOrder = (req, res, next) => {
                 })
         })
 }
+
+exports.getPreviousOrders = (req, res, next) => {
+    const {
+        familyId
+    } = req.headers;
+
+    OrderModel.find({
+            receiver: familyId
+        })
+        .then(orders => {
+            return res.status(200)
+                .json({
+                    success: true,
+                    orders
+                })
+        })
+        .catch(err => {
+            console.log("ERROR");
+            console.log(err);
+            return res.status(500)
+                .json({
+                    success: false,
+                    message: "Unknown server error"
+                })
+        })
+}
+
+
+exports.placeOrderForFamily = (req, res, next) => {
+
+    try {
+        return res.status(200)
+            .json({
+                success: true
+            })
+    } catch (err) {
+        // const result = await //something;
+        console.log("ERROR");
+        console.log(err);
+        return res.status(500)
+            .json({
+                success: false,
+                message: "Unknown server error!"
+            })
+    }
+
+
+
+}

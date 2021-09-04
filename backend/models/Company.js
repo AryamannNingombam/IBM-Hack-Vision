@@ -23,37 +23,7 @@ const CompanySchema = new Schema({
     },
 
     headquarters: {
-        type: {
-            building: {
-                type: String,
-                required: true,
-                unique: true,
-            },
-            street: {
-                type: String,
-                required: true,
-            },
-            landmark: {
-                type: String,
-                required: false
-            },
-            pinCode: {
-                type: Number,
-                required: true,
-            },
-            city: {
-                type: String,
-                required: true,
-            },
-            state: {
-                type: String,
-                required: false,
-            },
-            country: {
-                type: String,
-                required: true,
-            }
-        },
+        type: String,
         required: true,
 
     }

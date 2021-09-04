@@ -1,17 +1,16 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 
-
-const OrderSchema = new Schema({
-    orderId: {
-        type: String,
-        required: true,
-        unique: true,
-    },
+const PredictionSchema = new Schema({
     warehouse: {
         type: String,
         required: true,
+    },
+    estimatedDateOfDispatch: {
+        type: Date,
+        required: true,
+        default: Date.now()
     },
     companyId: {
         type: String,
@@ -110,26 +109,10 @@ const OrderSchema = new Schema({
         },
         required: true,
     },
-    specialFeautures: {
-        type: {
-            festivalOrGuest: {
-                type: Boolean,
-                required: true,
-                default: false,
-            },
-            holidays: {
-                type: Boolean,
-                required: true,
-                default: false,
-            }
-
-        },
-        required: true,
-    }
 
 })
 
 
-const OrderModel = mongoose.model("Order", OrderSchema);
+const PredictionModel = mongoose.model("Prediction",PredictionSchema);
 
-module.exports = OrderModel;
+module.exports = PredictionModel;
