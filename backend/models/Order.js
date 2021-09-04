@@ -13,6 +13,10 @@ const OrderSchema = new Schema({
         type: String,
         required: true,
     },
+    companyId: {
+        type: String,
+        required: true,
+    },
     orderDetails: {
         type: {
             rice: {
@@ -124,3 +128,8 @@ const OrderSchema = new Schema({
     }
 
 })
+
+
+const OrderModel = mongoose.model("Order", OrderSchema);
+
+module.exports = OrderModel;
