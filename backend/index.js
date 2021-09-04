@@ -53,7 +53,7 @@ app.use(bodyParser.json({
 }));
 
 const db = process.env.MONGO_DB_URI
-
+console.log(db)
 
 mongoose
     .connect(db, {
