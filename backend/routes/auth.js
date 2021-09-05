@@ -7,3 +7,6 @@ const router = express.Router();
 router.post('/sign-in-company', Controller.signInCompany);
 
 router.post('/sign-up-company', Controller.signUpCompany);
+
+
+module.exports = router;

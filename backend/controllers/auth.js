@@ -40,6 +40,9 @@ exports.signInCompany = (req, res, next) => {
 }
 
 
+
+
+
 exports.signUpCompany = async (req, res, next) => {
     const {
         username,

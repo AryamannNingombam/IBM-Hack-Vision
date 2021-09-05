@@ -15,7 +15,7 @@ const LocationSchema = new Schema({
         type: String,
         required: false
     },
-    pinCode: {
+    pincode: {
         type: Number,
         required: true,
     },

@@ -6,3 +6,4 @@ const Controller = require('../controllers/company');
 router.get("/get-company-details", Middleware.checkJWT, Controller.getCompanyDetails);
 
 
+module.exports = router;

@@ -5,6 +5,12 @@ const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const bodyParser = require('body-parser')
+const authRoutes = require('./routes/auth');
+const companyRoutes = require('./routes/company');
+const familyRoutes = require('./routes/family');
+const orderRoutes = require('./routes/order');
+const predictionRoutes = require('./routes/predictions');
+const warehouseRoutes = require('./routes/warehouse');
 
 const app = express()
 
@@ -69,6 +75,14 @@ mongoose
                 message: 'Welcome to my API'
             })
         })
+        app.use('/api/auth', authRoutes);
+        app.use('/api/company', companyRoutes);
+        app.use('/api/family', familyRoutes);
+        app.use('/api/order', orderRoutes);
+        app.use('/api/prediction', predictionRoutes);
+        app.use('/api/warehouse', warehouseRoutes);
+
+
 
 
         const PORT = process.env.PORT || 8080

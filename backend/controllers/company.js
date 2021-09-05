@@ -3,6 +3,7 @@ const CompanyModel = require('../models/Company');
 
 
 
+
 exports.getCompanyDetails = (req, res, next) => {
     const {
         _id
@@ -36,3 +37,4 @@ exports.getCompanyDetails = (req, res, next) => {
         })
 }
 
+ 
