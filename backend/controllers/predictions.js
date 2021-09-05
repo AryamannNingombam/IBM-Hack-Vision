@@ -1,8 +1,12 @@
 const WarehouseModel = require('../models/Warehouse');
-const OrderModel = require('../models/Order');
+const PredictionModel = require('../models/Prediction');
 
-exports.getAllOrdersForWarehouse = async (req, res, next) => {
+exports.getAllPredictionsForWarehouse = async (req, res, next) => {
     const _id = req.headers._id;
+    const lowerLimit = new Date(req.headers.lowerLimit);
+    const upperLimit = new Date(req.headers.upperLimit);
+
+
     if (!_id) {
         return res.status(500)
             .json({
@@ -11,8 +15,13 @@ exports.getAllOrdersForWarehouse = async (req, res, next) => {
             })
     }
     try {
-        const allOrders = await OrderModel.find({
-            warehouse: _id
+        const allOrders = await PredictionModel.find({
+            warehouse: _id,
+            estimatedDateOfDispatch:{
+                $gt:lowerLimit,
+                $lt:upperLimit
+            }
+            
         });
         let result = {
             totalRice: 0,
